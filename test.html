@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Final Test - Complex Receipt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .header, .ads-container, .sidebar, .footer {
+            background-color: #ffcccb;
+            padding: 15px;
+            margin: 10px;
+            text-align: center;
+            font-weight: bold;
+            width: 90%;
+        }
+        .main-content {
+            display: flex;
+            width: 90%;
+            margin: auto;
+        }
+        .sidebar {
+            width: 200px;
+            height: 400px;
+            background-color: #ddd;
+            padding: 15px;
+        }
+        .popup-receipt {
+            display: none;
+            position: fixed;
+            top: 20%;
+            left: 30%;
+            width: 400px;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+        }
+        .show {
+            display: block !important;
+        }
+        .fake-receipt {
+            background-color: yellow;
+            padding: 15px;
+            margin: 10px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function showReceipt() {
+            document.getElementById("receipt").classList.add("show");
+        }
+        setTimeout(() => {
+            document.getElementById("dynamic-receipt").style.display = "block";
+        }, 3000);
+    </script>
+</head>
+<body>
+    <div class="header">🌟 Welcome to XYZ Store! Special Offers Available 🌟</div>
+
+    <div class="ads-container">🔥 Flash Sale! Get 50% Off on All Items! 🔥</div>
+
+    <div class="main-content">
+        <div class="sidebar">📢 Trending: New Discounts on Electronics!</div>
+
+        <button onclick="showReceipt()">View Receipt</button>
+        <div id="receipt" class="popup-receipt">
+            <h2>XYZ Electronics</h2>
+            <p><strong>Order #:</strong> 567890</p>
+            <p><strong>Total:</strong> $129.99</p>
+            <p><strong>Payment Method:</strong> PayPal</p>
+            <p><strong>Transaction ID:</strong> TXN-123456</p>
+            <p><strong>Date:</strong> March 22, 2025</p>
+            <hr>
+            <p>Thank you for shopping with us!</p>
+        </div>
+    </div>
+
+    <div id="dynamic-receipt" class="popup-receipt" style="display: none;">
+        <h2>Delayed Invoice</h2>
+        <p><strong>Invoice #:</strong> INV-987654</p>
+        <p><strong>Total:</strong> $249.99</p>
+        <p><strong>Date:</strong> March 25, 2025</p>
+        <p>Auto-generated invoice.</p>
+    </div>
+
+    <div class="fake-receipt">
+        This is NOT a real receipt. It just contains words like "Total" and "Order #," but it should NOT be detected.
+    </div>
+
+    <div class="footer">📩 Subscribe to our newsletter for more deals!</div>
+</body>
+</html>
